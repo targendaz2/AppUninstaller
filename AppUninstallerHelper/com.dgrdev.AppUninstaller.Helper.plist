@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   com.dgrdev.AppUninstaller.Helper.plist
-   AppUninstaller
-
-   Created by David Rosenberg on 8/1/25.
-   Copyright (c) 2025 ___ORGANIZATIONNAME___. All rights reserved.
--->
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>Label</key>
+	<string>com.dgrdev.AppUninstaller.Helper</string>
+	<key>BundleProgram</key>
+	<string>Contents/Resources/AppUninstallerHelper</string>
+	<key>MachServices</key>
+	<dict>
+		<key>com.dgrdev.AppUninstaller.Helper</key>
+		<true/>
+	</dict>
+</dict>
 </plist>

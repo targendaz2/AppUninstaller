@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct AppListItem: View {
+    @Environment(AppManager.self) private var appManager
+    let app: InstalledApp
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            AppIcon(icon: app.icon, size: .small)
+
+            VStack(alignment: .leading) {
+                Text(app.name)
+                    .font(.headline)
+
+                if let publisher = app.publisher {
+                    Text(publisher)
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
+            }
+
+            Spacer()
+
+            if !appManager.canUninstall(app: app) {
+                Image(systemName: "lock.fill")
+                    .foregroundStyle(.red)
+                    .help("This app is restricted from uninstallation by your organization.")
+            }
+        }
     }
 }
 
 #Preview {
-    AppListItem()
+    AppListItem(app: .systemSettings)
+        .environment(AppManager())
+        .padding()
 }

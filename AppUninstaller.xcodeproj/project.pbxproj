@@ -12,6 +12,9 @@
 		EC033D552E6CED23000E2A00 /* AppInfoProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC6E2A0E2E3DC47B00CB43A9 /* AppUninstallerHelper in Resources */ = {isa = PBXBuildFile; fileRef = EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */; };
 		EC722E0C2E78F71F00FF7824 /* Subprocess in Frameworks */ = {isa = PBXBuildFile; productRef = EC722E0B2E78F71F00FF7824 /* Subprocess */; };
+		EC722E0E2E78FBAB00FF7824 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC722E0D2E78FBAB00FF7824 /* README.md */; };
+		EC722E102E78FBD100FF7824 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC722E0F2E78FBD100FF7824 /* LICENSE */; };
+		EC722E122E78FC0900FF7824 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC722E112E78FC0900FF7824 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		EC1F55602E6CEC4C0072C3C2 /* AppUninstallerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUninstallerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6E29F12E3DC3DE00CB43A9 /* AppUninstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppUninstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AppUninstallerHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC722E0D2E78FBAB00FF7824 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EC722E0F2E78FBD100FF7824 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EC722E112E78FC0900FF7824 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -168,6 +174,9 @@
 		EC6E29E82E3DC3DE00CB43A9 = {
 			isa = PBXGroup;
 			children = (
+				EC722E112E78FC0900FF7824 /* .gitignore */,
+				EC722E0F2E78FBD100FF7824 /* LICENSE */,
+				EC722E0D2E78FBAB00FF7824 /* README.md */,
 				EC6E2A122E3DC4C400CB43A9 /* Packaging */,
 				EC6E29F32E3DC3DE00CB43A9 /* AppUninstaller */,
 				EC1F55612E6CEC4C0072C3C2 /* AppUninstallerTests */,
@@ -404,6 +413,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC722E122E78FC0900FF7824 /* .gitignore in Resources */,
+				EC722E0E2E78FBAB00FF7824 /* README.md in Resources */,
+				EC722E102E78FBD100FF7824 /* LICENSE in Resources */,
 				EC6E2A0E2E3DC47B00CB43A9 /* AppUninstallerHelper in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

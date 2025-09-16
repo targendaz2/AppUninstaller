@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+let applicationFolders = [
+    URL(fileURLWithPath: "/Applications"),
+    URL(fileURLWithPath: "/System/Applications"),
+]
+
+enum ManagedPrefsKeys {
+    static let lockedBundleIDs = "lockedBundleIDs"
+}

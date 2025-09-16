@@ -7,23 +7,53 @@
 
 import SwiftUI
 
-let apps: [InstalledApp] = [
-    InstalledApp(path: "/Applications/Visual Studio Code.app")
-]
-
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            HStack {
-                apps[0].icon
+    @State private var viewModel = ViewModel()
 
-                VStack {
-                    Text(apps[0].name)
-                    Text(apps[0].id.uuidString)
+    var body: some View {
+        NavigationView {
+            AppList(selectedApp: $viewModel.selectedApp)
+                .environment(viewModel.appManager)
+                .listStyle(.sidebar)
+                .frame(minWidth: 200)
+
+            VStack {
+                if let selectedApp = viewModel.selectedApp {
+                    AppDetailView(app: selectedApp)
+                        .environment(viewModel.appManager)
+                        .padding()
+
+                    UninstallButton(disabled: !viewModel.appManager.canUninstall(app: selectedApp))
+                    {
+                        viewModel.showingUninstallConfirmation = true
+                    }
+                    .padding(.bottom)
+                } else {
+                    Text("Select an app to view details and uninstall.")
+                        .foregroundStyle(.gray)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .navigationTitle("App Uninstaller")
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                Button {
+                    try? viewModel.appManager.getInstalledApps()
+                } label: {
+                    Label("Refresh", systemImage: "arrow.clockwise")
                 }
             }
         }
-        .padding()
+        .sheet(isPresented: $viewModel.showingUninstallConfirmation) {
+            UninstallConfirmationView(
+                appName: viewModel.selectedApp?.name ?? "Unknown App",
+                onConfirm: {},
+                onCancel: {
+                    viewModel.showingUninstallConfirmation = false
+                }
+            )
+        }
     }
 }
 

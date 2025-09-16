@@ -13,14 +13,14 @@ struct InstalledApp: Comparable, Hashable, Identifiable {
     let name: String
     let bundleID: String
     let version: String?
-    let path: URL
+    let path: String
     var icon: NSImage?
     var publisher: String?
     var isAppStoreApp = false
     var isLocked = false
     
     var isSystemApp: Bool {
-        path.path.hasPrefix("/System/")
+        path.hasPrefix("/System/")
     }
     
     static func < (lhs: Self, rhs: Self) -> Bool {
@@ -36,7 +36,7 @@ struct InstalledApp: Comparable, Hashable, Identifiable {
             name: "System Settings",
             bundleID: "com.apple.systempreferences",
             version: "15.0",
-            path: URL(string: "/System/Applications/System Settings.app")!,
+            path: "/System/Applications/System Settings.app",
             publisher: "Apple",
         )
     #endif

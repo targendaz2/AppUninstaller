@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct AppList: View {
+    @Environment(AppManager.self) private var appManager
+    @Binding var selectedApp: InstalledApp?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(appManager.installedApps, selection: $selectedApp) { app in
+            AppListItem(app: app)
+                .tag(app)
+        }
     }
 }
 
 #Preview {
-    AppList()
+    AppList(selectedApp: .constant(nil))
+        .environment(AppManager())
 }
