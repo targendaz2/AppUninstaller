@@ -39,7 +39,9 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button {
-                    try? viewModel.appManager.getInstalledApps()
+                    Task {
+                        try? await viewModel.appManager.getInstalledApps()
+                    }
                 } label: {
                     Label("Refresh", systemImage: "arrow.clockwise")
                 }
@@ -53,6 +55,9 @@ struct ContentView: View {
                     viewModel.showingUninstallConfirmation = false
                 }
             )
+        }
+        .task {
+            try? await viewModel.appManager.getInstalledApps()
         }
     }
 }

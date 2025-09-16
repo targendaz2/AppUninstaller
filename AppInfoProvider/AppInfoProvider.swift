@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Subprocess
 import SwiftUI
 
 public class MacOSApp {
@@ -19,18 +20,18 @@ public class MacOSApp {
     private let bundle: Bundle
 
     // MARK: initializers
-    public convenience init?(path: String) {
-        self.init(path: URL(fileURLWithPath: path))
+    public convenience init?(path: String) async {
+        await self.init(path: URL(fileURLWithPath: path))
     }
 
-    public convenience init?(bundleID: String) {
+    public convenience init?(bundleID: String) async {
         guard let path = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) else {
             return nil
         }
-        self.init(path: path)
+        await self.init(path: path)
     }
 
-    public init?(path: URL) {
+    public init?(path: URL) async {
         guard let bundle = Bundle(url: path),
             let bundleID = bundle.bundleIdentifier
         else {
@@ -43,51 +44,43 @@ public class MacOSApp {
         self.name = path.deletingPathExtension().lastPathComponent
         self.version = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         self.icon = NSWorkspace.shared.icon(forFile: path.path)
-        self.appStoreID = Self.getAppStoreID(for: path)
-        self.codeSignature = Self.getCodeSignature(for: path)
+        self.appStoreID = await Self.getAppStoreID(for: path)
+        self.codeSignature = await Self.getCodeSignature(for: path)
     }
 
     // MARK: complex property getters
 
-    private static func getAppStoreID(for path: URL) -> Int? {
-        let process = Process()
-        process.executableURL = URL(filePath: "/usr/bin/mdls")
-        process.arguments = ["--name", "kMDItemAppStoreAdamID", path.path]
+    private static func getAppStoreID(for path: URL) async -> Int? {
+        let result = try? await run(
+            .path("/usr/bin/mdls"),
+            arguments: ["--name", "kMDItemAppStoreAdamID", path.path],
+            output: .string(limit: 4096)
+        )
 
-        let pipe = Pipe()
-        process.standardOutput = pipe
-
-        try? process.run()
-        if let data = try? pipe.fileHandleForReading.readToEnd(),
-            let output = String(data: data, encoding: .utf8)
-        {
-            let components = output.components(separatedBy: "=")
-            if components.count > 1 {
-                let idString = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
-                return Int(idString)
-            }
+        guard let components = result?.standardOutput?.components(separatedBy: "=") else {
+            return nil
         }
+
+        if components.count > 1 {
+            let idString = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
+            return Int(idString)
+        }
+
         return nil
     }
 
-    private static func getCodeSignature(for path: URL) -> String? {
+    private static func getCodeSignature(for path: URL) async -> String? {
         guard let decodedPath = path.path().removingPercentEncoding else {
             return nil
         }
 
-        let process = Process()
-        process.executableURL = URL(filePath: "/usr/bin/codesign")
-        process.arguments = ["-dvv", decodedPath]
+        let result = try? await run(
+            .path("/usr/bin/codesign"),
+            arguments: ["-dvv", decodedPath],
+            output: .discarded,
+            error: .string(limit: 4096)
+        )
 
-        let pipe = Pipe()
-        process.standardError = pipe
-
-        try? process.run()
-        if let data = try? pipe.fileHandleForReading.readToEnd(),
-            let output = String(data: data, encoding: .utf8)
-        {
-            return output
-        }
-        return nil
+        return result?.standardError
     }
 }

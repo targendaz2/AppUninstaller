@@ -11,10 +11,6 @@ import Foundation
 @Observable
 class AppManager {
     var installedApps: [InstalledApp] = []
-    
-    init() {
-        try? getInstalledApps()
-    }
 
     var lockedBundleIDs: [String] {
         let bundleIDsFromPrefs = UserDefaults.standard.array(
@@ -23,7 +19,7 @@ class AppManager {
         return bundleIDsFromPrefs as? [String] ?? []
     }
 
-    func getInstalledApps() throws {
+    func getInstalledApps() async throws {
         var apps: [InstalledApp] = []
         let fileManager = FileManager.default
 
@@ -36,20 +32,18 @@ class AppManager {
 
             for appURL in appURLs {
                 if appURL.pathExtension == "app",
-                    let app = processApp(at: appURL)
+                    let app = await processApp(at: appURL)
                 {
                     apps.append(app)
                 }
             }
         }
 
-        DispatchQueue.main.async {
-            self.installedApps = apps.sorted()
-        }
+        self.installedApps = apps.sorted()
     }
 
-    private func processApp(at appURL: URL) -> InstalledApp? {
-        guard let app = MacOSApp(path: appURL) else {
+    private func processApp(at appURL: URL) async -> InstalledApp? {
+        guard let app = await MacOSApp(path: appURL) else {
             return nil
         }
 
@@ -65,7 +59,7 @@ class AppManager {
         )
         return processedApp
     }
-    
+
     func canUninstall(app: InstalledApp) -> Bool {
         !app.isLocked && !app.isSystemApp
     }
@@ -111,17 +105,17 @@ extension AppManager {
             }
             semaphore.signal()
         }
-        
+
         task.resume()
         _ = semaphore.wait(timeout: .now() + 10.0)
-        
+
         if let error = requestError {
             print("Network request failed: \(error.localizedDescription)")
             return nil
         }
         return publisherName
     }
-    
+
     private func getAppPublisher(codeSignature: String) -> String? {
         let lines = codeSignature.components(separatedBy: .newlines)
         for line in lines {
@@ -139,7 +133,7 @@ extension AppManager {
                         let developerName = authority[..<parenRange.lowerBound]
                         return String(developerName)
                     }
-                    
+
                     if authority == "Software Signing" {
                         return "Apple"
                     }
