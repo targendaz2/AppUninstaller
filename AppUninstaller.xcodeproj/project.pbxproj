@@ -6,20 +6,149 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EC033D4A2E6CED23000E2A00 /* AppInfoProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */; };
+		EC033D542E6CED23000E2A00 /* AppInfoProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */; };
+		EC033D552E6CED23000E2A00 /* AppInfoProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC6E2A0E2E3DC47B00CB43A9 /* AppUninstallerHelper in Resources */ = {isa = PBXBuildFile; fileRef = EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */; };
+		EC722E0C2E78F71F00FF7824 /* Subprocess in Frameworks */ = {isa = PBXBuildFile; productRef = EC722E0B2E78F71F00FF7824 /* Subprocess */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC033D4B2E6CED23000E2A00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC033D402E6CED22000E2A00;
+			remoteInfo = AppInfoProvider;
+		};
+		EC033D4D2E6CED23000E2A00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC6E29F02E3DC3DE00CB43A9;
+			remoteInfo = AppUninstaller;
+		};
+		EC033D522E6CED23000E2A00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC033D402E6CED22000E2A00;
+			remoteInfo = AppInfoProvider;
+		};
+		EC1F55642E6CEC4C0072C3C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC6E29F02E3DC3DE00CB43A9;
+			remoteInfo = AppUninstaller;
+		};
+		EC6E2A0C2E3DC47500CB43A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC6E2A032E3DC3E900CB43A9;
+			remoteInfo = AppUninstallerHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC033D562E6CED23000E2A00 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC033D552E6CED23000E2A00 /* AppInfoProvider.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6E2A022E3DC3E900CB43A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppInfoProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC033D492E6CED23000E2A00 /* AppInfoProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppInfoProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC1F55602E6CEC4C0072C3C2 /* AppUninstallerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUninstallerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6E29F12E3DC3DE00CB43A9 /* AppUninstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppUninstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AppUninstallerHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EC033D422E6CED22000E2A00 /* AppInfoProvider */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppInfoProvider;
+			sourceTree = "<group>";
+		};
+		EC033D4F2E6CED23000E2A00 /* AppInfoProviderTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppInfoProviderTests;
+			sourceTree = "<group>";
+		};
+		EC1F55612E6CEC4C0072C3C2 /* AppUninstallerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppUninstallerTests;
+			sourceTree = "<group>";
+		};
 		EC6E29F32E3DC3DE00CB43A9 /* AppUninstaller */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AppUninstaller;
 			sourceTree = "<group>";
 		};
+		EC6E2A052E3DC3E900CB43A9 /* AppUninstallerHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppUninstallerHelper;
+			sourceTree = "<group>";
+		};
+		EC6E2A122E3DC4C400CB43A9 /* Packaging */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Packaging;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EC033D3E2E6CED22000E2A00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC722E0C2E78F71F00FF7824 /* Subprocess in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC033D462E6CED23000E2A00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC033D4A2E6CED23000E2A00 /* AppInfoProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC1F555D2E6CEC4C0072C3C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC6E29EE2E3DC3DE00CB43A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC033D542E6CED23000E2A00 /* AppInfoProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6E2A012E3DC3E900CB43A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,10 +158,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC033D5D2E6CED3D000E2A00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC6E29E82E3DC3DE00CB43A9 = {
 			isa = PBXGroup;
 			children = (
+				EC6E2A122E3DC4C400CB43A9 /* Packaging */,
 				EC6E29F32E3DC3DE00CB43A9 /* AppUninstaller */,
+				EC1F55612E6CEC4C0072C3C2 /* AppUninstallerTests */,
+				EC6E2A052E3DC3E900CB43A9 /* AppUninstallerHelper */,
+				EC033D422E6CED22000E2A00 /* AppInfoProvider */,
+				EC033D4F2E6CED23000E2A00 /* AppInfoProviderTests */,
+				EC033D5D2E6CED3D000E2A00 /* Frameworks */,
 				EC6E29F22E3DC3DE00CB43A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,13 +183,98 @@
 			isa = PBXGroup;
 			children = (
 				EC6E29F12E3DC3DE00CB43A9 /* AppUninstaller.app */,
+				EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */,
+				EC1F55602E6CEC4C0072C3C2 /* AppUninstallerTests.xctest */,
+				EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */,
+				EC033D492E6CED23000E2A00 /* AppInfoProviderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		EC033D3C2E6CED22000E2A00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		EC033D402E6CED22000E2A00 /* AppInfoProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC033D5B2E6CED23000E2A00 /* Build configuration list for PBXNativeTarget "AppInfoProvider" */;
+			buildPhases = (
+				EC033D3C2E6CED22000E2A00 /* Headers */,
+				EC033D3D2E6CED22000E2A00 /* Sources */,
+				EC033D3E2E6CED22000E2A00 /* Frameworks */,
+				EC033D3F2E6CED22000E2A00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EC033D422E6CED22000E2A00 /* AppInfoProvider */,
+			);
+			name = AppInfoProvider;
+			packageProductDependencies = (
+				EC722E0B2E78F71F00FF7824 /* Subprocess */,
+			);
+			productName = AppInfoProvider;
+			productReference = EC033D412E6CED22000E2A00 /* AppInfoProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EC033D482E6CED23000E2A00 /* AppInfoProviderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC033D5C2E6CED23000E2A00 /* Build configuration list for PBXNativeTarget "AppInfoProviderTests" */;
+			buildPhases = (
+				EC033D452E6CED23000E2A00 /* Sources */,
+				EC033D462E6CED23000E2A00 /* Frameworks */,
+				EC033D472E6CED23000E2A00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC033D4C2E6CED23000E2A00 /* PBXTargetDependency */,
+				EC033D4E2E6CED23000E2A00 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EC033D4F2E6CED23000E2A00 /* AppInfoProviderTests */,
+			);
+			name = AppInfoProviderTests;
+			packageProductDependencies = (
+			);
+			productName = AppInfoProviderTests;
+			productReference = EC033D492E6CED23000E2A00 /* AppInfoProviderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC1F555F2E6CEC4C0072C3C2 /* AppUninstallerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC1F55662E6CEC4C0072C3C2 /* Build configuration list for PBXNativeTarget "AppUninstallerTests" */;
+			buildPhases = (
+				EC1F555C2E6CEC4C0072C3C2 /* Sources */,
+				EC1F555D2E6CEC4C0072C3C2 /* Frameworks */,
+				EC1F555E2E6CEC4C0072C3C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC1F55652E6CEC4C0072C3C2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EC1F55612E6CEC4C0072C3C2 /* AppUninstallerTests */,
+			);
+			name = AppUninstallerTests;
+			packageProductDependencies = (
+			);
+			productName = AppUninstallerTests;
+			productReference = EC1F55602E6CEC4C0072C3C2 /* AppUninstallerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EC6E29F02E3DC3DE00CB43A9 /* AppUninstaller */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC6E29FD2E3DC3DF00CB43A9 /* Build configuration list for PBXNativeTarget "AppUninstaller" */;
@@ -55,13 +282,17 @@
 				EC6E29ED2E3DC3DE00CB43A9 /* Sources */,
 				EC6E29EE2E3DC3DE00CB43A9 /* Frameworks */,
 				EC6E29EF2E3DC3DE00CB43A9 /* Resources */,
+				EC033D562E6CED23000E2A00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EC6E2A0D2E3DC47500CB43A9 /* PBXTargetDependency */,
+				EC033D532E6CED23000E2A00 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				EC6E29F32E3DC3DE00CB43A9 /* AppUninstaller */,
+				EC6E2A122E3DC4C400CB43A9 /* Packaging */,
 			);
 			name = AppUninstaller;
 			packageProductDependencies = (
@@ -69,6 +300,28 @@
 			productName = AppUninstaller;
 			productReference = EC6E29F12E3DC3DE00CB43A9 /* AppUninstaller.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EC6E2A032E3DC3E900CB43A9 /* AppUninstallerHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC6E2A082E3DC3E900CB43A9 /* Build configuration list for PBXNativeTarget "AppUninstallerHelper" */;
+			buildPhases = (
+				EC6E2A002E3DC3E900CB43A9 /* Sources */,
+				EC6E2A012E3DC3E900CB43A9 /* Frameworks */,
+				EC6E2A022E3DC3E900CB43A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EC6E2A052E3DC3E900CB43A9 /* AppUninstallerHelper */,
+			);
+			name = AppUninstallerHelper;
+			packageProductDependencies = (
+			);
+			productName = AppUninstallerHelper;
+			productReference = EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -78,9 +331,23 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					EC033D402E6CED22000E2A00 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					EC033D482E6CED23000E2A00 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = EC6E29F02E3DC3DE00CB43A9;
+					};
+					EC1F555F2E6CEC4C0072C3C2 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = EC6E29F02E3DC3DE00CB43A9;
+					};
 					EC6E29F02E3DC3DE00CB43A9 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					EC6E2A032E3DC3E900CB43A9 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -94,28 +361,85 @@
 			);
 			mainGroup = EC6E29E82E3DC3DE00CB43A9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EC6E29F22E3DC3DE00CB43A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EC6E29F02E3DC3DE00CB43A9 /* AppUninstaller */,
+				EC6E2A032E3DC3E900CB43A9 /* AppUninstallerHelper */,
+				EC1F555F2E6CEC4C0072C3C2 /* AppUninstallerTests */,
+				EC033D402E6CED22000E2A00 /* AppInfoProvider */,
+				EC033D482E6CED23000E2A00 /* AppInfoProviderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC6E29EF2E3DC3DE00CB43A9 /* Resources */ = {
+		EC033D3F2E6CED22000E2A00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC033D472E6CED23000E2A00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC1F555E2E6CEC4C0072C3C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6E29EF2E3DC3DE00CB43A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC6E2A0E2E3DC47B00CB43A9 /* AppUninstallerHelper in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EC033D3D2E6CED22000E2A00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC033D452E6CED23000E2A00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC1F555C2E6CEC4C0072C3C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC6E29ED2E3DC3DE00CB43A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6E2A002E3DC3E900CB43A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,7 +448,183 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EC033D4C2E6CED23000E2A00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC033D402E6CED22000E2A00 /* AppInfoProvider */;
+			targetProxy = EC033D4B2E6CED23000E2A00 /* PBXContainerItemProxy */;
+		};
+		EC033D4E2E6CED23000E2A00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC6E29F02E3DC3DE00CB43A9 /* AppUninstaller */;
+			targetProxy = EC033D4D2E6CED23000E2A00 /* PBXContainerItemProxy */;
+		};
+		EC033D532E6CED23000E2A00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC033D402E6CED22000E2A00 /* AppInfoProvider */;
+			targetProxy = EC033D522E6CED23000E2A00 /* PBXContainerItemProxy */;
+		};
+		EC1F55652E6CEC4C0072C3C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC6E29F02E3DC3DE00CB43A9 /* AppUninstaller */;
+			targetProxy = EC1F55642E6CEC4C0072C3C2 /* PBXContainerItemProxy */;
+		};
+		EC6E2A0D2E3DC47500CB43A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC6E2A032E3DC3E900CB43A9 /* AppUninstallerHelper */;
+			targetProxy = EC6E2A0C2E3DC47500CB43A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		EC033D572E6CED23000E2A00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppInfoProvider;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EC033D582E6CED23000E2A00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppInfoProvider;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EC033D592E6CED23000E2A00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppInfoProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppUninstaller.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppUninstaller";
+			};
+			name = Debug;
+		};
+		EC033D5A2E6CED23000E2A00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppInfoProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppUninstaller.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppUninstaller";
+			};
+			name = Release;
+		};
+		EC1F55672E6CEC4C0072C3C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstallerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppUninstaller.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppUninstaller";
+			};
+			name = Debug;
+		};
+		EC1F55682E6CEC4C0072C3C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstallerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppUninstaller.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppUninstaller";
+			};
+			name = Release;
+		};
 		EC6E29FB2E3DC3DF00CB43A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -159,6 +659,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 2E9K39V4CT;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -184,6 +685,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -223,6 +725,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2E9K39V4CT;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -241,6 +744,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -254,15 +758,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2E9K39V4CT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "App Uninstaller";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstaller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,15 +790,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2E9K39V4CT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "App Uninstaller";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstaller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,9 +813,62 @@
 			};
 			name = Release;
 		};
+		EC6E2A092E3DC3E900CB43A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstaller.Helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EC6E2A0A2E3DC3E900CB43A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2E9K39V4CT;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dgrdev.AppUninstaller.Helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EC033D5B2E6CED23000E2A00 /* Build configuration list for PBXNativeTarget "AppInfoProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC033D572E6CED23000E2A00 /* Debug */,
+				EC033D582E6CED23000E2A00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC033D5C2E6CED23000E2A00 /* Build configuration list for PBXNativeTarget "AppInfoProviderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC033D592E6CED23000E2A00 /* Debug */,
+				EC033D5A2E6CED23000E2A00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC1F55662E6CEC4C0072C3C2 /* Build configuration list for PBXNativeTarget "AppUninstallerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC1F55672E6CEC4C0072C3C2 /* Debug */,
+				EC1F55682E6CEC4C0072C3C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EC6E29EC2E3DC3DE00CB43A9 /* Build configuration list for PBXProject "AppUninstaller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -320,7 +887,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EC6E2A082E3DC3E900CB43A9 /* Build configuration list for PBXNativeTarget "AppUninstallerHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC6E2A092E3DC3E900CB43A9 /* Debug */,
+				EC6E2A0A2E3DC3E900CB43A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftlang/swift-subprocess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC722E0B2E78F71F00FF7824 /* Subprocess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */;
+			productName = Subprocess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC6E29E92E3DC3DE00CB43A9 /* Project object */;
 }

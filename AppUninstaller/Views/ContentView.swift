@@ -16,10 +16,10 @@ struct ContentView: View {
         VStack {
             HStack {
                 apps[0].icon
-                
+
                 VStack {
                     Text(apps[0].name)
-                    Text(apps[0].id)
+                    Text(apps[0].id.uuidString)
                 }
             }
         }
