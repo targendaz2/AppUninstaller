@@ -2,36 +2,21 @@
 //  AppPublisherService.swift
 //  AppUninstaller
 //
-//  Created by Assistant on 9/21/25.
+//  Created by David Rosenberg on 9/21/25.
 //
 
 import Foundation
 
-/// Provides a human-readable publisher (developer/vendor) name for an app.
-protocol AppPublisherService {
-    /// Returns a publisher name for the given app if one can be determined.
-    func publisherName(for app: MacOSApp) async -> String?
-}
-
-/// Facade that tries App Store metadata first, then code signature.
-struct DefaultAppPublisherService: AppPublisherService {
-    var appStore: AppStorePublisherService
-    var codeSignature: CodeSignaturePublisherService
-
-    init(
-        appStore: AppStorePublisherService = DefaultAppStorePublisherService(),
-        codeSignature: CodeSignaturePublisherService = DefaultCodeSignaturePublisherService()
-    ) {
-        self.appStore = appStore
-        self.codeSignature = codeSignature
-    }
-
+struct AppPublisherService {
+    let appStore = AppStorePublisherService()
+    let codeSignature = CodeSignaturePublisherService()
+    
     func publisherName(for app: MacOSApp) async -> String? {
-        if let appStoreID = app.appStoreID {
-            if let name = await appStore.publisherName(forAppStoreID: appStoreID) {
-                return name
-            }
+        if let appStoreID = app.appStoreID,
+           let name = await appStore.publisherName(forAppStoreID: appStoreID) {
+            return name
         }
+        
         if let signature = app.codeSignature {
             return codeSignature.publisherName(fromCodeSignature: signature)
         }
@@ -40,27 +25,54 @@ struct DefaultAppPublisherService: AppPublisherService {
 }
 
 // MARK: - App Store
-protocol AppStorePublisherService {
-    func publisherName(forAppStoreID id: Int) async -> String?
-}
-
-struct DefaultAppStorePublisherService: AppStorePublisherService {
+struct AppStorePublisherService {
     func publisherName(forAppStoreID id: Int) async -> String? {
-        // TODO: Move URLSession lookup logic from AppManager.getAppPublisher(appStoreID:)
-        // For now, return nil to allow incremental adoption.
-        return nil
+        var urlComponents = URLComponents(string: "https://itunes.apple.com/lookup")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "id", value: "\(id)")
+        ]
+        let apiURL = urlComponents.url!
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: apiURL)
+            if let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                as? [String: Any],
+               let results = json["results"] as? [[String: Any]],
+               let name = results.first?["artistName"] as? String
+            {
+                return name
+            } else {
+                print("Could not parse publisher for App Store ID \(id)")
+                return nil
+            }
+        } catch {
+            print("Network request failed: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 
 // MARK: - Code Signature
-protocol CodeSignaturePublisherService {
-    func publisherName(fromCodeSignature signature: String) -> String?
-}
-
-struct DefaultCodeSignaturePublisherService: CodeSignaturePublisherService {
+struct CodeSignaturePublisherService {
     func publisherName(fromCodeSignature signature: String) -> String? {
-        // TODO: Move Authority parsing logic from AppManager.getAppPublisher(codeSignature:)
-        // For now, return nil to allow incremental adoption.
-        return nil
+        let results = signature
+            .components(separatedBy: .newlines)
+            .compactMap { line -> String? in
+                guard line.trimmingCharacters(in: .whitespaces).hasPrefix("Authority=") else {
+                    return nil
+                }
+                
+                let line = line
+                    .deletingPrefix("Authority=")
+                    .deletingPrefix("Developer ID Application:")
+                    .components(separatedBy: "(")[0]
+                    .trimmingCharacters(in: .whitespaces)
+                
+                if line == "Software Signing" {
+                    return "Apple"
+                }
+                return line
+            }
+        return results.first
     }
 }
