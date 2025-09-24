@@ -5,6 +5,7 @@
 //  Created by David Rosenberg on 9/15/25.
 //
 
+import CoreServices
 import Foundation
 import Subprocess
 import SwiftUI
@@ -40,36 +41,34 @@ class AppInfoService {
     
     // MARK: getter functions
     public func getAppStoreID() async -> Int? {
-        let result = try? await run(
-            .path("/usr/bin/mdls"),
-            arguments: ["--name", "kMDItemAppStoreAdamID", path.path],
-            output: .string(limit: 4096)
-        )
-
-        guard let components = result?.standardOutput?.components(separatedBy: "=") else {
+        guard let item = MDItemCreateWithURL(kCFAllocatorDefault, path as CFURL),
+              let value = MDItemCopyAttribute(item, "kMDItemAppStoreAdamID" as CFString)
+        else {
             return nil
         }
-
-        if components.count > 1 {
-            let idString = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
-            return Int(idString)
+        
+        switch value {
+            case let value as NSNumber:
+                return value.intValue
+            case let value as String:
+                return Int(value) ?? nil
+            default:
+                return nil
         }
-
-        return nil
     }
     
     public func getCodeSignature() async -> String? {
         guard let decodedPath = path.path().removingPercentEncoding else {
             return nil
         }
-
+        
         let result = try? await run(
             .path("/usr/bin/codesign"),
             arguments: ["-dvv", decodedPath],
             output: .discarded,
             error: .string(limit: 4096)
         )
-
+        
         return result?.standardError
     }
 }

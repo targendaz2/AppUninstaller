@@ -29,7 +29,7 @@ public class MacOSApp {
     }
 
     public init?(path: URL) async {
-        guard let appInfo = AppInfo(path: path),
+        guard let appInfo = AppInfoService(path: path),
             let bundleID = appInfo.bundleID
         else {
             return nil

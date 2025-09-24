@@ -18,19 +18,19 @@ struct InstalledApp: Comparable, Hashable, Identifiable {
     var publisher: String?
     var isAppStoreApp = false
     var isLocked = false
-    
+
     var isSystemApp: Bool {
         path.hasPrefix("/System/")
     }
-    
+
     static func < (lhs: Self, rhs: Self) -> Bool {
         lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending
     }
-    
+
     static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedSame
     }
-    
+
     #if DEBUG
         static let systemSettings = InstalledApp(
             name: "System Settings",
