@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC3011C02E8375C500EBEDD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EC3011BF2E8375C500EBEDD7 /* Alamofire */; };
 		EC6E2A0E2E3DC47B00CB43A9 /* AppUninstallerHelper in Resources */ = {isa = PBXBuildFile; fileRef = EC6E2A042E3DC3E900CB43A9 /* AppUninstallerHelper */; };
 		EC722E0E2E78FBAB00FF7824 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC722E0D2E78FBAB00FF7824 /* README.md */; };
 		EC722E102E78FBD100FF7824 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC722E0F2E78FBD100FF7824 /* LICENSE */; };
@@ -104,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC722E2E2E811C6000FF7824 /* Subprocess in Frameworks */,
-				EC3011C02E8375C500EBEDD7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +197,6 @@
 			name = AppUninstaller;
 			packageProductDependencies = (
 				EC722E2D2E811C6000FF7824 /* Subprocess */,
-				EC3011BF2E8375C500EBEDD7 /* Alamofire */,
 			);
 			productName = AppUninstaller;
 			productReference = EC6E29F12E3DC3DE00CB43A9 /* AppUninstaller.app */;
@@ -260,7 +257,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */,
-				EC3011BE2E8375C500EBEDD7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EC6E29F22E3DC3DE00CB43A9 /* Products */;
@@ -627,14 +623,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC3011BE2E8375C500EBEDD7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.10.2;
-			};
-		};
 		EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftlang/swift-subprocess.git";
@@ -646,11 +634,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC3011BF2E8375C500EBEDD7 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC3011BE2E8375C500EBEDD7 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		EC722E2D2E811C6000FF7824 /* Subprocess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC722E0A2E78F71F00FF7824 /* XCRemoteSwiftPackageReference "swift-subprocess" */;
