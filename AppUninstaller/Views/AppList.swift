@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppList: View {
-    @Environment(AppManager.self) private var appManager
+    @Environment(InstalledAppsStore.self) private var appManager
     @Binding var selectedApp: InstalledApp?
 
     var body: some View {
@@ -21,5 +21,5 @@ struct AppList: View {
 
 #Preview {
     AppList(selectedApp: .constant(nil))
-        .environment(AppManager())
+        .environment(InstalledAppsStore())
 }

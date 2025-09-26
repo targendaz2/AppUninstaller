@@ -1,6 +1,6 @@
 //
-//  AppInfoProvider.swift
-//  AppInfoProvider
+//  MacOSApp.swift
+//  AppUninstaller
 //
 //  Created by David Rosenberg on 9/6/25.
 //
@@ -8,27 +8,27 @@
 import Foundation
 import SwiftUI
 
-public class MacOSApp {
-    public let path: URL
-    public let bundleID: String
-    public let name: String
-    public let version: String?
-    public let icon: NSImage?
-    public let appStoreID: Int?
-    public let codeSignature: String?
+final class MacOSApp {
+    let path: URL
+    let bundleID: String
+    let name: String
+    let version: String?
+    let icon: NSImage?
+    let appStoreID: Int?
+    let codeSignature: String?
 
-    public convenience init?(path: String) async {
+    convenience init?(path: String) async {
         await self.init(path: URL(fileURLWithPath: path))
     }
 
-    public convenience init?(bundleID: String) async {
+    convenience init?(bundleID: String) async {
         guard let path = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) else {
             return nil
         }
         await self.init(path: path)
     }
 
-    public init?(path: URL) async {
+    init?(path: URL) async {
         guard let appInfo = AppBundleInfo(url: path),
             let bundleID = appInfo.bundleID
         else {

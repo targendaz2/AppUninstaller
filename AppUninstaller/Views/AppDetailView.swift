@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppDetailView: View {
-    @Environment(AppManager.self) private var appManager
+    @Environment(InstalledAppsStore.self) private var appManager
     let app: InstalledApp
     
     var body: some View {
@@ -39,5 +39,5 @@ struct AppDetailView: View {
 
 #Preview {
     AppDetailView(app: .systemSettings)
-        .environment(AppManager())
+        .environment(InstalledAppsStore())
 }

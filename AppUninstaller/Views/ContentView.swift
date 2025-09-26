@@ -40,7 +40,7 @@ struct ContentView: View {
             ToolbarItem(placement: .automatic) {
                 Button {
                     Task {
-                        try? await viewModel.appManager.getInstalledApps()
+                        await viewModel.appManager.getInstalledApps()
                     }
                 } label: {
                     Label("Refresh", systemImage: "arrow.clockwise")
@@ -57,7 +57,7 @@ struct ContentView: View {
             )
         }
         .task {
-            try? await viewModel.appManager.getInstalledApps()
+            await viewModel.appManager.getInstalledApps()
         }
     }
 }

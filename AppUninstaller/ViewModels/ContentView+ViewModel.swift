@@ -9,12 +9,14 @@ import Foundation
 import Observation
 
 extension ContentView {
+    @MainActor
     @Observable
     final class ViewModel {
-        let appManager = AppManager()
+        let appManager = InstalledAppsStore()
         var selectedApp: InstalledApp? = nil
         var showingUninstallConfirmation = false
         var uninstallSuccess = false
         var searchTerm = ""
     }
 }
+

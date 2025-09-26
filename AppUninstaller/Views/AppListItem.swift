@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppListItem: View {
-    @Environment(AppManager.self) private var appManager
+    @Environment(InstalledAppsStore.self) private var appManager
     let app: InstalledApp
 
     var body: some View {
@@ -39,6 +39,6 @@ struct AppListItem: View {
 
 #Preview {
     AppListItem(app: .systemSettings)
-        .environment(AppManager())
+        .environment(InstalledAppsStore())
         .padding()
 }

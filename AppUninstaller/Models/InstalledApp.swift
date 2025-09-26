@@ -8,35 +8,39 @@
 import Foundation
 import SwiftUI
 
-struct InstalledApp: Comparable, Hashable, Identifiable {
-    let id = UUID()
+struct InstalledApp: Identifiable, Hashable, Comparable {
     let name: String
     let bundleID: String
     let version: String?
-    let path: String
+    let url: URL
     var icon: NSImage?
     var publisher: String?
     var isAppStoreApp = false
     var isLocked = false
-
-    var isSystemApp: Bool {
-        path.hasPrefix("/System/")
-    }
-
+    
+    var id: String { bundleID }
+    var isSystemApp: Bool { url.path.hasPrefix("/System/") }
+    
     static func < (lhs: Self, rhs: Self) -> Bool {
-        lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending
+        lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
     }
-
+    
     static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedSame
+        lhs.bundleID == rhs.bundleID
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(bundleID)
+    }
+}
 
+extension InstalledApp {
     #if DEBUG
         static let systemSettings = InstalledApp(
             name: "System Settings",
             bundleID: "com.apple.systempreferences",
             version: "15.0",
-            path: "/System/Applications/System Settings.app",
+            url: URL(string: "/System/Applications/System Settings.app")!,
             publisher: "Apple",
         )
     #endif
